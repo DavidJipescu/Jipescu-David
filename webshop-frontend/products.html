@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Produsele noastre</h1>
+    <nav>
+      <a href="index.html">Acasă</a>
+      <a href="products.html">Produse</a>
+      <a href="cart.html">Coș</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="Laptop">
+        <h3>Laptop ASUS</h3>
+        <p>Preț: 3500 RON</p>
+        <button onclick="addToCart('Laptop ASUS', 3500)">Adaugă în coș</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="Mouse">
+        <h3>Mouse Logitech</h3>
+        <p>Preț: 150 RON</p>
+        <button onclick="addToCart('Mouse Logitech', 150)">Adaugă în coș</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200" alt="Căști">
+        <h3>Căști Sony</h3>
+        <p>Preț: 250 RON</p>
+        <button onclick="addToCart('Căști Sony', 250)">Adaugă în coș</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Magazin Web - Jipescu David</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
