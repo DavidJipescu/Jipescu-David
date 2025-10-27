@@ -1,33 +1,50 @@
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.addEventListener('DOMContentLoaded', () => {
+  const loggedUser = localStorage.getItem('loggedInUser');
+  if(loggedUser && window.location.pathname.includes('index.html')){
+    const authLinks = document.querySelector('.auth-links');
+    if(authLinks){
+      authLinks.innerHTML = `<span>Bine ai venit, ${loggedUser}</span>`;
+    }
+  }
 
-function addToCart(name, price) {
-  cart.push({ name, price });
-  localStorage.setItem('cart', JSON.stringify(cart));
-  alert(`${name} a fost adăugat în coș!`);
-}
+  const loginForm = document.getElementById('loginForm');
+  if(loginForm){
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const user = JSON.parse(localStorage.getItem('user'));
+      if(user && username === user.username && password === user.password){
+        localStorage.setItem('loggedInUser', username);
+        alert('Autentificare reușită!');
+        window.location.href = 'index.html';
+      } else { alert('Date incorecte!'); }
+    });
+  }
 
-function displayCart() {
-  const list = document.getElementById('cart-items');
-  const total = document.getElementById('total-price');
-  if (!list) return;
+  const registerForm = document.getElementById('registerForm');
+  if(registerForm){
+    registerForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('regUsername').value;
+      const password = document.getElementById('regPassword').value;
+      if(username && password){
+        localStorage.setItem('user', JSON.stringify({username,password}));
+        alert('Cont creat cu succes! Te poți autentifica acum.');
+        registerForm.reset();
+      } else { alert('Completează toate câmpurile!'); }
+    });
+  }
 
-  list.innerHTML = '';
-  let sum = 0;
-
-  cart.forEach(item => {
-    const li = document.createElement('li');
-    li.textContent = `${item.name} - ${item.price} RON`;
-    list.appendChild(li);
-    sum += item.price;
+  const products = document.querySelectorAll('.product');
+  products.forEach(prod => {
+    prod.addEventListener('mouseenter', () => {
+      prod.style.transform = 'scale(1.05)';
+      prod.style.boxShadow = '0 6px 15px rgba(0,0,0,0.2)';
+    });
+    prod.addEventListener('mouseleave', () => {
+      prod.style.transform = 'scale(1)';
+      prod.style.boxShadow = '0 3px 8px rgba(0,0,0,0.1)';
+    });
   });
-
-  total.textContent = `Total: ${sum} RON`;
-
-  document.getElementById('clear-cart').onclick = () => {
-    cart = [];
-    localStorage.removeItem('cart');
-    displayCart();
-  };
-}
-
-window.onload = displayCart;
+})

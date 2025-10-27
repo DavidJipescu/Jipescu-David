@@ -3,29 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Magazin Web - Acasă</title>
+  <title>RockMuzik - Acasă</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="navbar.js"></script>
 </head>
 <body>
-  <header>
-    <h1>Magazinul lui David</h1>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">RockMuzik</div>
     <nav>
       <a href="index.html">Acasă</a>
       <a href="products.html">Produse</a>
-      <a href="cart.html">Coș</a>
     </nav>
+    <div class="auth-links">
+      <div id="userMenu" class="dropdown" style="display:none;">
+        <button id="userBtn" class="dropbtn"></button>
+        <div class="dropdown-content">
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+      <div id="loginRegister">
+        <a href="login.html">Login</a>
+        <a href="register.html">Înregistrare</a>
+      </div>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>Bun venit în magazinul nostru online!</h2>
-      <p>Descoperă cele mai noi produse tehnologice la prețuri excelente.</p>
-      <a href="products.html" class="btn">Vezi produsele</a>
-    </section>
+  <!-- Banner promo -->
+  <div class="promo-banner">🔥 Promoții rock – Doar astăzi! 🔥</div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>RockMuzik Store</h1>
+      <p>Instrumente și echipamente pentru adevărații rockeri</p>
+      <a href="products.html" class="btn-hero">Vezi Produsele</a>
+    </div>
+  </section>
+
+  <!-- Produse recomandate -->
+  <main class="products-page">
+    <h2>Produse recomandate</h2>
+    <div class="products">
+      <div class="product">
+        <span class="label-new">New</span>
+        <a href="product.html?item=fender">
+          <img src="https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=400&q=60" alt="Chitară electrică Fender">
+          <h3>Chitară electrică Fender</h3>
+          <p class="price"><span class="old-price">2.500 RON</span> 2.300 RON</p>
+        </a>
+      </div>
+      <div class="product">
+        <span class="label-hot">Hot</span>
+        <a href="product.html?item=akg">
+          <img src="https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=400&q=60" alt="Căști Studio AKG">
+          <h3>Căști Studio AKG</h3>
+          <p class="price">750 RON</p>
+        </a>
+      </div>
+      <div class="product">
+        <a href="product.html?item=roland">
+          <img src="https://images.unsplash.com/photo-1598387993441-cb3f33d6e6fc?auto=format&fit=crop&w=400&q=60" alt="Tobe Roland">
+          <h3>Set tobe Roland TD-1DMK</h3>
+          <p class="price">4.999 RON</p>
+        </a>
+      </div>
+    </div>
   </main>
 
   <footer>
-    <p>&copy; 2025 Magazin Web - Creat de Jipescu David</p>
+    <div class="footer-content">
+      <div>
+        <h4>RockMuzik Store</h4>
+        <p>&copy; 2025 Toate drepturile rezervate.</p>
+      </div>
+    </div>
   </footer>
+
 </body>
 </html>
